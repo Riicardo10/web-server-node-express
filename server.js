@@ -4,19 +4,20 @@ const PORT = 3000;
 
 app.use( express.static( __dirname + '/public' ) );
 
+// MOTOR DE VISTA
+app.set( 'view engine', 'hbs' );
+
 app
-    .get( '/inicio', (req, res) => {
-        res.send( 'INICIO:   /inicio' );
+    .get( '/', (req, res) => {
+
+       res.render( 'index.hbs', {
+           nombre: 'Jose Abdiel', 
+           anio: new Date().getFullYear()
+        } );
     } )
-    .get( '/usuario', (req, res) => {
-        let usuario = {
-            nombre: 'Ricardo',
-            apellido: 'Flores',
-            ocupacion: 'ISC',
-            url: req.url
-        }
-        res.send( usuario );
-    } )
+    .get( '/contacto', (req, res) => {
+        res.render( 'contacto.hbs' );
+     } )
     .listen( PORT, () => { 
         console.log( 'Servidor escuchando en el puerto: ' + PORT )
     } );
