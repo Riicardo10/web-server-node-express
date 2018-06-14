@@ -1,6 +1,7 @@
 const express = require( 'express' );
 const app = express();
 const hbs = require( 'hbs' );
+require ( './hbs/helpers' );
 const PORT = 3000;
 
 app.use( express.static( __dirname + '/public' ) );
@@ -12,19 +13,17 @@ app.set( 'view engine', 'hbs' );
 app
     .get( '/', (req, res) => {
        res.render( 'index.hbs', {
-           nombre: 'Jose Abdiel', 
-           anio: new Date().getFullYear()
+           nombre: 'Jose AbdIel AbrajAN FLOres'
         } );
     } )
     .get( '/contacto', (req, res) => {
         res.render( 'contacto.hbs', {
-            active_contacto: true,
-            anio: new Date().getFullYear()
+            active_contacto: true
         } );
      } )
      .get( '/nosotros', (req, res) => {
         res.render( 'nosotros.hbs', {
-            anio: new Date().getFullYear()
+            getAnio: 'Anio'
         } );
      } )
     .listen( PORT, () => { 
