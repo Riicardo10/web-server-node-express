@@ -13,7 +13,7 @@ app.set( 'view engine', 'hbs' );
 app
     .get( '/', (req, res) => {
        res.render( 'index.hbs', {
-           nombre: 'Jose AbdIel AbrajAN FLOres'
+           nombre: 'JoSE AbDIel AbrajAN FLOres'
         } );
     } )
     .get( '/contacto', (req, res) => {
